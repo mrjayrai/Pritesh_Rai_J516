@@ -1,0 +1,6 @@
+mysql> create database ecom;
+Query OK, 1 row affected (0.10 sec)
+
+mysql> use ecom;
+Database changed
+mysql>

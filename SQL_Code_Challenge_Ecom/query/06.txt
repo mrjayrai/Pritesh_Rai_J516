@@ -1,0 +1,15 @@
+Question-> Find Products which name end with letter ‘r’.
+Answer ->
+
+mysql> select name from products where name like '%r';
++----------------+
+| name           |
++----------------+
+| Coffee Maker   |
+| Refrigerator   |
+| Blender        |
+| Vacuum Cleaner |
++----------------+
+4 rows in set (0.03 sec)
+
+mysql>

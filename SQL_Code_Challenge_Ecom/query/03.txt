@@ -1,0 +1,13 @@
+Question -> Retrieve Products Priced Below $100.
+
+Answer ->
+
+mysql> select name from products where price <100;
++----------------+
+| name           |
++----------------+
+| Coffee Maker   |
+| Microwave Oven |
+| Blender        |
++----------------+
+3 rows in set (0.00 sec)

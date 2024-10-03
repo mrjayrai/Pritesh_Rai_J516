@@ -1,0 +1,17 @@
+Question -> Count the Number of Orders Placed by Each Customer.
+Answer ->
+
+mysql> select c.name,Count(order_id)
+    -> from orders o
+    -> join customers c on c.customer_id = o.customer_id
+    -> group by c.name;
++---------------+-----------------+
+| name          | Count(order_id) |
++---------------+-----------------+
+| John Doe      |               2 |
+| Jane Smith    |               2 |
+| Michael Brown |               2 |
+| Emily Johnson |               2 |
+| David Lee     |               2 |
++---------------+-----------------+
+5 rows in set (0.02 sec)

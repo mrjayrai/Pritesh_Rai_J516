@@ -1,0 +1,16 @@
+Question -> Subquery to Find Products Not in the Cart.
+
+Answer -> 
+
+mysql> select name
+    -> from products
+    -> where product_id not in (
+    -> select product_id from carts
+    -> );
++------------+
+| name       |
++------------+
+| Smartphone |
+| Headphones |
++------------+
+2 rows in set (0.04 sec)

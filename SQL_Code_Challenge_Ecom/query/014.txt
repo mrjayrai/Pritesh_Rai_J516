@@ -1,0 +1,15 @@
+Question -> Get Customers Who Placed Orders Totaling Over $1000.
+
+Answer -> 
+
+mysql> select c.name,SUM(total_price) as order_total
+    -> from orders o
+    -> join customers c on c.customer_id = o.customer_id
+    -> group by c.name
+    -> Having order_total>1000;
++----------+-------------+
+| name     | order_total |
++----------+-------------+
+| John Doe |     1749.98 |
++----------+-------------+
+1 row in set (0.03 sec)

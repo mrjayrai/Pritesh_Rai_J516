@@ -1,0 +1,31 @@
+Question -> Determine the Minimum Stock Quantity for Each Product Category.
+
+Answer -> 
+
+mysql> select * from products;
++------------+----------------+--------+-------------------------+----------------+----------------------+
+| product_id | name           | price  | description             | stock_Quantity | category             |
++------------+----------------+--------+-------------------------+----------------+----------------------+
+|          1 | Laptop         | 800.00 | High performance laptop |             50 | Electrical Appliance |
+|          2 | Smartphone     | 600.00 | Latest smartphone       |            100 | Electrical Appliance |
+|          3 | Headphones     | 150.00 | Noise-canceling         |            200 | Electrical Appliance |
+|          4 | TV             | 900.00 | 4K Smart TV             |            150 | Electrical Appliance |
+|          5 | Tablet         | 300.00 | Portable tablet         |             80 | Electrical Appliance |
+|          6 | Coffee Maker   |  50.00 | Automatic coffee maker  |             60 | Home Appliance       |
+|          7 | Refrigerator   | 800.00 | Energy-efficient        |            120 | Home Appliance       |
+|          8 | Microwave Oven |  80.00 | Countertop microwave    |            300 | Home Appliance       |
+|          9 | Blender        |  70.00 | High-speed blender      |            400 | Home Appliance       |
+|         10 | Vacuum Cleaner | 120.00 | Bagless vacuum cleaner  |            250 | Home Appliance       |
++------------+----------------+--------+-------------------------+----------------+----------------------+
+10 rows in set (0.00 sec)
+
+mysql> select category,MIN(stock_quantity) as minimum_stock
+    -> from products
+    -> group by category;
++----------------------+---------------+
+| category             | minimum_stock |
++----------------------+---------------+
+| Electrical Appliance |            50 |
+| Home Appliance       |            60 |
++----------------------+---------------+
+2 rows in set (0.00 sec)

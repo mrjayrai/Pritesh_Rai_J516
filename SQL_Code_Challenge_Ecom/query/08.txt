@@ -1,0 +1,13 @@
+Question -> Find Customers Who Placed Orders in 2023.
+Answer ->
+
+mysql> SELECT order_id, c.name
+    -> FROM orders
+    -> JOIN customers c ON c.customer_id = orders.customer_id
+    -> WHERE YEAR(order_date) = 2023;
++----------+-----------+
+| order_id | name      |
++----------+-----------+
+|       10 | David Lee |
++----------+-----------+
+1 row in set (0.01 sec)

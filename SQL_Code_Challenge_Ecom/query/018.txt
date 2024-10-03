@@ -1,0 +1,20 @@
+Question =>  Subquery to Find Products with Low Stock.
+
+Answer => 
+
+mysql> select product_id,name,stock_Quantity
+    -> from products p
+    -> where p.stock_Quantity < (
+    -> Select AVG(stock_Quantity)
+    -> from products);
++------------+--------------+----------------+
+| product_id | name         | stock_Quantity |
++------------+--------------+----------------+
+|          1 | Laptop       |             50 |
+|          2 | Smartphone   |            100 |
+|          4 | TV           |            150 |
+|          5 | Tablet       |             80 |
+|          6 | Coffee Maker |             60 |
+|          7 | Refrigerator |            120 |
++------------+--------------+----------------+
+6 rows in set (0.05 sec)

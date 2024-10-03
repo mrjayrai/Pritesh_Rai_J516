@@ -1,0 +1,14 @@
+Question -> Retrieve Cart Items for Customer 5.
+Answer -> 
+
+mysql> SELECT c.cart_id, p.name, c.quantity
+    -> FROM carts c
+    -> JOIN products p ON c.product_id = p.product_id
+    -> WHERE c.customer_id = 5;
++---------+----------------+----------+
+| cart_id | name           | quantity |
++---------+----------------+----------+
+|       9 | Blender        |        1 |
+|      10 | Vacuum Cleaner |        2 |
++---------+----------------+----------+
+2 rows in set (0.00 sec)

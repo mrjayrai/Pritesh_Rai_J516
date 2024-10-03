@@ -1,0 +1,18 @@
+Question -> Find the Maximum Order Amount for Each Customer.
+
+Answer -> 
+
+mysql> select c.name ,MAX(total_price) as max_order_amt
+    -> from orders o
+    -> join customers c on c.customer_id = o.customer_id
+    -> group by c.name;
++---------------+---------------+
+| name          | max_order_amt |
++---------------+---------------+
+| John Doe      |       1099.99 |
+| Jane Smith    |        499.99 |
+| Michael Brown |        299.99 |
+| Emily Johnson |        749.99 |
+| David Lee     |        199.99 |
++---------------+---------------+
+5 rows in set (0.04 sec)

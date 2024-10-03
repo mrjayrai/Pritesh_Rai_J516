@@ -1,0 +1,17 @@
+Question => Subquery to Find Customers Who Placed High-Value Orders.
+Answer => 
+mysql> SELECT c.customer_id, c.name, SUM(o.total_price) AS total_high_value_orders
+    ->  FROM customers c
+    ->  JOIN orders o ON c.customer_id = o.customer_id
+    ->  GROUP BY c.customer_id, c.name
+    -> Having total_high_value_orders > (
+    -> Select  Max(total_price)
+    -> from orders);
++-------------+----------+-------------------------+
+| customer_id | name     | total_high_value_orders |
++-------------+----------+-------------------------+
+|           1 | John Doe |                 1749.98 |
++-------------+----------+-------------------------+
+1 row in set (0.01 sec)
+
+mysql>

@@ -1,0 +1,21 @@
+mysql> create table carts(
+    -> cart_id int,
+    -> customer_id int,
+    -> product_id int,
+    -> quantity int,
+    -> constraint carts_pk PRIMARY KEY(cart_id),
+    -> constraint cart_cust_fk FOREIGN KEY(customer_id) references customers(customer_id) on delete cascade,
+    -> constraint cart_prod_fk FOREIGN KEY(product_id) references products(product_id) on delete set null
+    -> );
+Query OK, 0 rows affected (0.15 sec)
+
+mysql> desc carts;
++-------------+------+------+-----+---------+-------+
+| Field       | Type | Null | Key | Default | Extra |
++-------------+------+------+-----+---------+-------+
+| cart_id     | int  | NO   | PRI | NULL    |       |
+| customer_id | int  | YES  | MUL | NULL    |       |
+| product_id  | int  | YES  | MUL | NULL    |       |
+| quantity    | int  | YES  |     | NULL    |       |
++-------------+------+------+-----+---------+-------+
+4 rows in set (0.01 sec)

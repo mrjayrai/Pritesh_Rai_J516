@@ -1,0 +1,21 @@
+mysql> create table products(
+    -> product_id int,
+    -> name varchar(30),
+    -> price decimal(10,2),
+    -> description text,
+    -> stock_Quantity int,
+    -> constraint product_pk PRIMARY KEY(product_id)
+    -> );
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> desc products;
++----------------+---------------+------+-----+---------+-------+
+| Field          | Type          | Null | Key | Default | Extra |
++----------------+---------------+------+-----+---------+-------+
+| product_id     | int           | NO   | PRI | NULL    |       |
+| name           | varchar(30)   | YES  |     | NULL    |       |
+| price          | decimal(10,2) | YES  |     | NULL    |       |
+| description    | text          | YES  |     | NULL    |       |
+| stock_Quantity | int           | YES  |     | NULL    |       |
++----------------+---------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)

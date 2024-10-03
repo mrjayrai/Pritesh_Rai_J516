@@ -1,0 +1,29 @@
+Question => Subquery to Calculate the Percentage of Total Revenue for a Product.
+
+Answer => 
+
+mysql> select
+    -> p.name,
+    -> SUM(oi.quantity*p.price) AS product_revenue,
+    -> (SUM(oi.quantity * p.price)/(Select SUM(oi2.quantity*p2.price)
+    ->                             from order_items oi2
+    ->                             join products p2 on oi2.product_id = p2.product_id))*100 as percentage_revenue
+    -> from order_items oi
+    -> join products p on oi.product_id = p.product_id
+    -> group by
+    -> p.product_id;
++----------------+-----------------+--------------------+
+| name           | product_revenue | percentage_revenue |
++----------------+-----------------+--------------------+
+| Laptop         |          800.00 |          14.059754 |
+| Smartphone     |          600.00 |          10.544815 |
+| Headphones     |          150.00 |           2.636204 |
+| TV             |         1800.00 |          31.634446 |
+| Tablet         |          300.00 |           5.272408 |
+| Coffee Maker   |           50.00 |           0.878735 |
+| Refrigerator   |         1600.00 |          28.119508 |
+| Microwave Oven |           80.00 |           1.405975 |
+| Blender        |           70.00 |           1.230228 |
+| Vacuum Cleaner |          240.00 |           4.217926 |
++----------------+-----------------+--------------------+
+10 rows in set (0.00 sec)

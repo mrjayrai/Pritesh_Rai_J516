@@ -1,0 +1,15 @@
+Question => Subquery to Find Customers Who Haven't Placed Orders.
+
+Answers =>
+
+mysql> select name
+    -> from customers
+    -> where customer_id not in (
+    -> select customer_id
+    -> from carts);
++----------+
+| name     |
++----------+
+| John Doe |
++----------+
+1 row in set (0.00 sec)

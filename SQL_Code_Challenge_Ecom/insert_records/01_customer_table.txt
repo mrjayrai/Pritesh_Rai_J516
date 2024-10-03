@@ -1,0 +1,22 @@
+mysql> INSERT INTO customers (customer_id, name, email, password) VALUES
+    -> (1, 'John Doe', 'johndoe@example.com', 'password123'),
+    -> (2, 'Jane Smith', 'janesmith@example.com', 'jsmith456'),
+    -> (3, 'Michael Brown', 'michaelbrown@example.com', 'mbrown789'),
+    -> (4, 'Emily Johnson', 'emilyjohnson@example.com', 'ejohnson321'),
+    -> (5, 'David Lee', 'davidlee@example.com', 'dlee654');
+Query OK, 5 rows affected (0.05 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from customers;
++-------------+---------------+--------------------------+-------------+
+| customer_id | name          | email                    | password    |
++-------------+---------------+--------------------------+-------------+
+|           1 | John Doe      | johndoe@example.com      | password123 |
+|           2 | Jane Smith    | janesmith@example.com    | jsmith456   |
+|           3 | Michael Brown | michaelbrown@example.com | mbrown789   |
+|           4 | Emily Johnson | emilyjohnson@example.com | ejohnson321 |
+|           5 | David Lee     | davidlee@example.com     | dlee654     |
++-------------+---------------+--------------------------+-------------+
+5 rows in set (0.00 sec)
+
+mysql>

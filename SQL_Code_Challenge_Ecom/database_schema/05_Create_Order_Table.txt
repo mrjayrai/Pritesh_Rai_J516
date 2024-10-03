@@ -1,0 +1,22 @@
+mysql> create table orders(
+    -> order_id int,
+    -> customer_id int,
+    -> order_date date,
+    -> total_price decimal(10,2),
+    -> shipping_address varchar(60),
+    -> constraint order_pk PRIMARY KEY(order_id),
+    -> constraint order_cust_fk FOREIGN KEY(customer_id) references customers(customer_id) on delete set null
+    -> );
+Query OK, 0 rows affected (0.12 sec)
+
+mysql> desc orders;
++------------------+---------------+------+-----+---------+-------+
+| Field            | Type          | Null | Key | Default | Extra |
++------------------+---------------+------+-----+---------+-------+
+| order_id         | int           | NO   | PRI | NULL    |       |
+| customer_id      | int           | YES  | MUL | NULL    |       |
+| order_date       | date          | YES  |     | NULL    |       |
+| total_price      | decimal(10,2) | YES  |     | NULL    |       |
+| shipping_address | varchar(60)   | YES  |     | NULL    |       |
++------------------+---------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)

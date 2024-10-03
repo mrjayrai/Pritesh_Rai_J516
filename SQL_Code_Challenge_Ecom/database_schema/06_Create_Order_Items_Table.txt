@@ -1,0 +1,20 @@
+mysql> CREATE TABLE order_items (
+    ->order_item_id INT,
+    ->order_id INT,
+    ->product_id INT,
+    ->quantity INT,
+    ->CONSTRAINT orderitems_pk PRIMARY KEY(order_item_id),
+    ->CONSTRAINT ord_itm_fk FOREIGN KEY(order_id) REFERENCES orders(order_id) ON DELETE SET NULL,
+    ->CONSTRAINT itm_prod_fk FOREIGN KEY(product_id) REFERENCES products(product_id) ON DELETE SET NULL
+    -> );
+Query OK, 0 rows affected (0.13 sec)
+
+mysql> desc order_items;
++---------------+------+------+-----+---------+-------+
+| Field         | Type | Null | Key | Default | Extra |
++---------------+------+------+-----+---------+-------+
+| order_item_id | int  | NO   | PRI | NULL    |       |
+| order_id      | int  | YES  | MUL | NULL    |       |
+| product_id    | int  | YES  | MUL | NULL    |       |
+| quantity      | int  | YES  |     | NULL    |       |
++---------------+------+------+-----+---------+-------+

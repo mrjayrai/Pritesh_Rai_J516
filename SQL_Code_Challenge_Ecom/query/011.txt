@@ -1,0 +1,18 @@
+Question -> Find the Average Order Amount for Each Customer.
+
+Answer -> 
+
+mysql> select c.name,AVG(total_price) as average_amount_spent
+    -> from orders o
+    -> join customers c on c.customer_id = o.customer_id
+    -> group by c.name;
++---------------+----------------------+
+| name          | average_amount_spent |
++---------------+----------------------+
+| John Doe      |           874.990000 |
+| Jane Smith    |           294.990000 |
+| Michael Brown |           229.990000 |
+| Emily Johnson |           494.990000 |
+| David Lee     |           149.990000 |
++---------------+----------------------+
+5 rows in set (0.03 sec)
