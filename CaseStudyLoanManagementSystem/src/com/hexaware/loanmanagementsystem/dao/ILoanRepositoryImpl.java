@@ -51,7 +51,7 @@ public class ILoanRepositoryImpl implements ILoanRepository {
 		if (count > 0) {
 			if (loan instanceof HomeLoan) {
 				HomeLoan homeLoan = (HomeLoan) loan;
-				String homeLoanInsertQUery = "INSERT INTO homeloan (car_loan_id, loan_id, car_model, car_value) "
+				String homeLoanInsertQUery = "INSERT INTO homeloan (home_loan_id, loan_id, property_address, property_value) "
 						+ "VALUES (?, ?, ?, ?);";
 				PreparedStatement homeLoanStmt = conn.prepareStatement(homeLoanInsertQUery);
 				homeLoanStmt.setInt(1, homeLoan.getLoanId());
@@ -63,7 +63,7 @@ public class ILoanRepositoryImpl implements ILoanRepository {
 			}
 			if (loan instanceof CarLoan) {
 				CarLoan carLoan = (CarLoan) loan;
-				String carLoanInsertQUery = "INSERT INTO homeloan (home_loan_id, loan_id, property_address, property_value) "
+				String carLoanInsertQUery = "INSERT INTO carloan (car_loan_id, loan_id, car_model, car_value) "
 						+ "VALUES (?, ?, ?, ?);";
 				PreparedStatement homeLoanStmt = conn.prepareStatement(carLoanInsertQUery);
 				homeLoanStmt.setInt(1, carLoan.getLoanId());

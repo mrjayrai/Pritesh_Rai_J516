@@ -77,6 +77,18 @@ public class MainModule {
 					}
 					break;
 				case "CARLOAN":
+					System.out.println("Enter Car Model");
+					String carModel = scanner.next();
+					System.out.println("Enter Car Value");
+					double carValue = scanner.nextDouble();
+					CarLoan carLoan = new CarLoan(loanId, customer, principalAmount, interestRate, loanTerm, loanTypeEnum, loanStatusEnum, carModel, carValue);
+					
+					try {
+						service.applyLoan(carLoan);
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 					break;
 				default:
 					break;
