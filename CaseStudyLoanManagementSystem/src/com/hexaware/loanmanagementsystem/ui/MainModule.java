@@ -27,7 +27,9 @@ public class MainModule {
 		ILoanService service = new LoanServiceImpl();
 		MainModule client = new MainModule();
 		boolean flag = true;
+		try {
 
+		
 		while (flag) {
 			System.out.println(
 					"----------------------------------Welcome to Loan Management System----------------------------------");
@@ -45,7 +47,7 @@ public class MainModule {
 				Loan loan = null;
 				int loanId = client.generateLoanID();
 				System.out.println("Please Enter your Customer ID: ");
-				Customer customer = new Customer(); 
+				Customer customer = new Customer();
 				int customerId = scanner.nextInt();
 				customer.setCustomerID(customerId);
 				System.out.println("Please Enter your Credit Score: ");
@@ -67,8 +69,9 @@ public class MainModule {
 					String propertyAddress = scanner.next();
 					System.out.println("Enter Property Value");
 					double propertyValue = scanner.nextDouble();
-					HomeLoan homeLoan = new HomeLoan(loanId, customer, principalAmount, interestRate, loanTerm, loanTypeEnum, loanStatusEnum, propertyAddress, propertyValue);
-					
+					HomeLoan homeLoan = new HomeLoan(loanId, customer, principalAmount, interestRate, loanTerm,
+							loanTypeEnum, loanStatusEnum, propertyAddress, propertyValue);
+
 					try {
 						service.applyLoan(homeLoan);
 					} catch (Exception e1) {
@@ -81,8 +84,9 @@ public class MainModule {
 					String carModel = scanner.next();
 					System.out.println("Enter Car Value");
 					double carValue = scanner.nextDouble();
-					CarLoan carLoan = new CarLoan(loanId, customer, principalAmount, interestRate, loanTerm, loanTypeEnum, loanStatusEnum, carModel, carValue);
-					
+					CarLoan carLoan = new CarLoan(loanId, customer, principalAmount, interestRate, loanTerm,
+							loanTypeEnum, loanStatusEnum, carModel, carValue);
+
 					try {
 						service.applyLoan(carLoan);
 					} catch (Exception e1) {
@@ -100,7 +104,7 @@ public class MainModule {
 				System.out.println("Please Enter the Loan ID: ");
 				int loanIDSec = scanner.nextInt();
 				double calc = service.calculateEMI(loanIDSec);
-				System.out.println("Calculated Interest: "+calc);
+				System.out.println("Calculated Interest: " + calc);
 				break;
 
 			case 3:
@@ -138,7 +142,7 @@ public class MainModule {
 				List<Loan> loanList = service.getAllLoan();
 				for (Loan l : loanList) {
 					Loan.LoanType loanTypeRec = l.getLoanType();
-					switch(loanTypeRec) {
+					switch (loanTypeRec) {
 					case HOMELOAN:
 						HomeLoan loanSub = (HomeLoan) l;
 						System.out.println(loanSub.toString());
@@ -176,6 +180,10 @@ public class MainModule {
 				System.out.println("Invalid choice, please try again.");
 				break;
 			}
+		}
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.err.println("Please enter valid input");
 		}
 		scanner.close(); // Close the scanner resource
 	}
