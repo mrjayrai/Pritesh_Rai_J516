@@ -141,11 +141,11 @@ public class MainModule {
 					switch(loanTypeRec) {
 					case HOMELOAN:
 						HomeLoan loanSub = (HomeLoan) l;
-						loanSub.toString();
+						System.out.println(loanSub.toString());
 						break;
 					case CARLOAN:
 						CarLoan loanCar = (CarLoan) l;
-						loanCar.toString();
+						System.out.println(loanCar.toString());
 						break;
 					}
 				}
